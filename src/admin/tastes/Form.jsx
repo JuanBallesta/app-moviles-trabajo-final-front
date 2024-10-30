@@ -128,8 +128,8 @@ function FormTaste() {
   };
 
   return (
-    <div>
-      <div className="p-6 mx-24 mt-24 text-xl border border-black font-bold bg-white rounded-md shadow-lg">
+    <div className="bg-cyan-200 p-10">
+      <div className="p-6 text-xl border border-black font-bold bg-cyan-200 rounded-md shadow-lg">
         {loading ? (
           <p>Cargando...</p>
         ) : (
@@ -142,7 +142,7 @@ function FormTaste() {
                   onChange={(e) => setTaste(e.target.value)}
                   type="text"
                   placeholder="Gusto de helado"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Ingredientes</label>
@@ -151,7 +151,7 @@ function FormTaste() {
                   onChange={(e) => setIngredients(e.target.value)}
                   type="text"
                   placeholder="Ingredientes"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Descripción</label>
@@ -160,7 +160,7 @@ function FormTaste() {
                   onChange={(e) => setShortDescription(e.target.value)}
                   type="text"
                   placeholder="Descripción"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Valor nutricional</label>
@@ -169,7 +169,7 @@ function FormTaste() {
                   onChange={(e) => setNutritionalValue(e.target.value)}
                   type="text"
                   placeholder="Valor nutricional"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Fotos</label>
@@ -178,7 +178,7 @@ function FormTaste() {
                   onChange={(e) => setPhotos(e.target.value)}
                   type="text"
                   placeholder="Fotos"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Stock</label>
@@ -187,12 +187,12 @@ function FormTaste() {
                   onChange={(e) => setStock(e.target.value)}
                   type="text"
                   placeholder="Stock"
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal" />
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
               </div>
               <div className="m-3">
                 <label className="block mb-1">Categoría</label>
                 <select
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal"
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium text-gray-500 border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
                   onChange={(e) => setCategorieSeletected(e.target.value)}
                   value={categorieSeletected}>
                   <option value="">Selecciona una categoría</option>
@@ -206,7 +206,7 @@ function FormTaste() {
               <div className="m-3">
                 <label className="block mb-1">Tipo de producto</label>
                 <select
-                  className="p-3 bg-gray-200 rounded-md w-full font-normal"
+                  className="p-3 bg-gray-200 rounded-md w-full font-medium text-gray-500 border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
                   onChange={(e) => setProductTypesSeletected(e.target.value)}
                   value={productTypesSeletected}>
                   <option value="">Selecciona un tipo de producto</option>
@@ -218,19 +218,20 @@ function FormTaste() {
                 </select>
               </div>
               <div className="flex justify-between mt-4 col-span-2">
-                <button type="submit" className="bg-cyan-500 text-white w-1/3 p-2 rounded-xl cursor-pointer hover:bg-cyan-800">
+                <button type="submit" className="text-white w-full mx-8 p-2 rounded-xl cursor-pointer bg-cyan-400 font-bold transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring">
                   GUARDAR
                 </button>
-                <button type="button" onClick={() => navigate("/admin/tastes")} className="bg-cyan-500 text-white w-1/3 p-2 rounded-xl cursor-pointer hover:bg-cyan-800">
+                <button type="button" onClick={() => navigate("/admin/tastes")} className="text-white w-full mx-8 p-2 rounded-xl cursor-pointer bg-cyan-400 font-bold transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring">
                   CANCELAR
                 </button>
               </div>
             </form>
           </div>
-        )}
+        )
+        }
         {error && <p className="text-red-500">{error}</p>}
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 

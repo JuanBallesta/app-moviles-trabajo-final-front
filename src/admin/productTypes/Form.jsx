@@ -86,10 +86,15 @@ function FormProductTypes() {
     }
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    save();
+  };
+
   return (
-    <div>
-      <div className="p-6 mx-24 mt-24 text-xl border border-black font-bold bg-white rounded-md shadow-lg">
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="bg-cyan-200 p-24">
+      <div className="p-6 text-xl border border-black font-bold bg-white rounded-md shadow-lg">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="m-3">
             <label className="block mb-1">Tipo de envasado</label>
             <input
@@ -97,7 +102,7 @@ function FormProductTypes() {
               onChange={(e) => setDescription(e.target.value)}
               type="text"
               placeholder="Tipo de envasado"
-              className="p-3 text-black bg-gray-200 rounded-md w-full" />
+              className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
           </div>
           <div className="m-3">
             <label className="block mb-1">Precio</label>
@@ -106,16 +111,16 @@ function FormProductTypes() {
               onChange={(e) => setPrice(e.target.value)}
               type="text"
               placeholder="Precio"
-              className="p-3 text-black bg-gray-200 rounded-md w-full" />
+              className="p-3 bg-gray-200 rounded-md w-full font-medium border-gray-200 shadow-sm sm:text-sm focus:ring-2 focus:ring-cyan-400 focus:border-transparent" />
           </div>
           <div className="flex justify-between mt-4 col-span-2">
             <button
-              onClick={() => save()}
-              className="bg-cyan-500 text-white w-1/3 p-2 rounded-xl cursor-pointer hover:bg-cyan-800">
+              type="submit"
+              className="text-white w-full mx-8 p-2 rounded-xl cursor-pointer bg-cyan-400 font-bold transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring">
               GUARDAR
             </button>
             <button
-              className="bg-cyan-500 text-white w-1/3 p-2 rounded-xl cursor-pointer hover:bg-cyan-800"
+              className="text-white w-full mx-8 p-2 rounded-xl cursor-pointer bg-cyan-400 font-bold transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring"
               onClick={() => navigate("/admin/productTypes")}>
               CANCELAR
             </button>

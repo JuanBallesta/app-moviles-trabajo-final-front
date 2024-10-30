@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Cabecera from './components/Cabecera.jsx';
 import Home from './Home.jsx';
 import Dashboard from './admin/Dashboard.jsx';
 import IceCreamTastesIndex from './admin/tastes/index.jsx';
@@ -16,8 +17,12 @@ import FormTaste from './admin/tastes/Form.jsx';
 import FormCategorie from './admin/categories/Form.jsx';
 import ProductTypesIndex from './admin/productTypes/index.jsx';
 import FormProductTypes from './admin/productTypes/Form.jsx';
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx';
+import Pie from './components/Pie.jsx';
 
 import './index.css'
+
 axios.defaults.baseURL = 'http://localhost:3000';
 
 const router = createBrowserRouter([
@@ -63,6 +68,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Header />
     <RouterProvider router={router} />
+    <Pie />
   </StrictMode>,
 )

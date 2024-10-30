@@ -1,48 +1,69 @@
 import { useEffect, useState } from 'react';
-
 import axios from 'axios';
-import Listado from './Listado.jsx';
-
-import './Home.css'
+import Container from './Container.jsx';
+import { Banner } from './components/Banner.jsx';
+import { Pagination } from "flowbite-react";
+import './Home.css';
 
 function Home() {
-
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [cantidadItems, setCantidadItems] = useState(0);
+  const [pagina, setPagina] = useState(1);
+  const [filtro, setFiltro] = useState('');
+  const [categorieSelected, setCategorieSelected] = useState([]);
+  const [productTypesSelected, setProductTypesSelected] = useState([]);
 
   const chargeTastes = () => {
-    axios.get('/tastes/').then((respuesta) => {
-      console.log("***", respuesta)
+    setLoading(true);
 
-      setLoading(false);
-      if (respuesta.status === 200) {
-        console.log("respuesta correcta", respuesta.data.data)
-        setData(respuesta.data.data)
-      } else {
-        console.log("error")
-      }
-    }).catch((error) => {
-      console.log("error", error)
-    });
-  }
+    let categorias = [];
+    categorias.push(categorieSelected);
+    console.log("categorias", categorias)
+
+    axios.get(`/tastes/list?pagina=${pagina}&cantidad=5&filtro=${filtro}&categorias=${categorias}`)
+      .then((respuesta) => {
+        console.log(respuesta.data)
+        if (respuesta.status === 200) {
+          setData(respuesta.data.data.rows);
+          setCantidadItems(respuesta.data.data.count);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-    setLoading(true);
     chargeTastes();
-  }, [])
+  }, [pagina]);
+
+  const onPageChange = (page) => setPagina(page);
+
+  const totalPages = Math.ceil(cantidadItems / 5) || 1;
 
   return (
     <>
-      <div className='bg-cyan-400 p-4 text-center font-bold italic text-5xl'>
-        HELADERIA LA DELICIA
+      <Banner />
+      <div className='p-5 bg-cyan-200'>
+        <div className="content-center">
+          {loading ? (
+            <div className="text-center text-xl">Cargando...</div>
+          ) : (
+            <Container tastes={data} categorieSetter={setCategorieSelected} />
+          )}
+          <Container tastes={data} />
+          <div className="flex justify-center mt-5">
+            <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} />
+          </div>
+        </div>
       </div>
-      {(loading == true) ?
-        <div>Cargando...</div>
-        :
-        <div> <Listado tastes={data} /> </div>
-      }
     </>
-  )
+  );
+
 }
 
-export default Home
+export default Home;
