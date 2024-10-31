@@ -17,11 +17,7 @@ function Home() {
   const chargeTastes = () => {
     setLoading(true);
 
-    let categorias = [];
-    categorias.push(categorieSelected);
-    console.log("categorias", categorias)
-
-    axios.get(`/tastes/list?pagina=${pagina}&cantidad=5&filtro=${filtro}&categorias=${categorias}`)
+    axios.get(`/tastes/list?pagina=${pagina}&cantidad=5&filtro=${filtro}&categories=${categorieSelected}&productTypes=${productTypesSelected}`)
       .then((respuesta) => {
         console.log(respuesta.data)
         if (respuesta.status === 200) {
@@ -39,7 +35,7 @@ function Home() {
 
   useEffect(() => {
     chargeTastes();
-  }, [pagina]);
+  }, [pagina, filtro, categorieSelected, productTypesSelected]);
 
   const onPageChange = (page) => setPagina(page);
 
@@ -53,9 +49,10 @@ function Home() {
           {loading ? (
             <div className="text-center text-xl">Cargando...</div>
           ) : (
-            <Container tastes={data} categorieSetter={setCategorieSelected} />
+            <Container tastes={data} categorieSelected={categorieSelected} setCategorieSelected={setCategorieSelected}
+              filtro={filtro} setFiltro={setFiltro}
+              productTypesSelected={productTypesSelected} setProductTypesSelected={setProductTypesSelected} />
           )}
-          <Container tastes={data} />
           <div className="flex justify-center mt-5">
             <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} />
           </div>
