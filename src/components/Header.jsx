@@ -25,31 +25,29 @@ export const Header = () => {
 
   return (
     <header className="bg-cyan-400 text-white font-bold">
-      <div className="px-4 sm:px-6 lg:px-8 flex h-16">
-        {/* Div home */}
-        <div className="flex-1 md:flex md:items-center">
+      <div className="px-4 sm:px-6 md:flex lg:px-8 flex h-16 md:items-center">
+        {/* Sección home */}
+        <div className="flex-1 ">
           <a className="block text-teal-600" href="/">
             <span className="sr-only">Home</span>
             <img className="w-10 h-10 md:w-12 md:h-12" src={Logo} alt='Logo de La Delicia' />
           </a>
         </div>
 
-        {/* Div botones */}
-        <div className="md:flex md:items-center">
-          <nav aria-label="Global" className="hidden md:block">
-            <ul className="flex items-center gap-6 text-sm">
-              <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
-                <button >OFERTAS</button>
-              </li>
-              <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
-                <button>¿Cómo comprar?</button>
-              </li>
-              <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
-                <button>Mi carrito 🛒</button>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        {/* Sección botones */}
+        <nav aria-label="Global" className="hidden md:block">
+          <ul className="flex items-center gap-6 text-sm">
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+              <button >OFERTAS</button>
+            </li>
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+              <button>¿Cómo comprar?</button>
+            </li>
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+              <button>Mi carrito 🛒</button>
+            </li>
+          </ul>
+        </nav>
 
         {/* DIV notificaciones */}
         <div className="relative inline-block" ref={dropdownRef}>
@@ -84,7 +82,7 @@ export const Header = () => {
           )}
         </div>
 
-        {/* Div usuario */}
+        {/* Sección usuario */}
         <div className='ml-12'>
           <div className="hidden md:relative md:block">
             <button
