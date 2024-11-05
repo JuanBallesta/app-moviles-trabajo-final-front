@@ -1,26 +1,27 @@
 "use client";
 
 import { Carousel } from "flowbite-react";
-import img1 from "../assets/Banner/img1.jpeg"
+import img1 from "../assets/Banner/img1.jpg"
 import img2 from "../assets/Banner/img2.jpg"
 import img3 from "../assets/Banner/img3.jpg"
-import img4 from "../assets/Banner/prueba1.jpg"
-import img5 from "../assets/Banner/img5.webp"
-import img6 from "../assets/Banner/images.jpeg"
+import img4 from "../assets/Banner/img4.webp"
+import img5 from "../assets/Banner/img5.jpg"
+import img6 from "../assets/Banner/img6.jpg"
+import img7 from "../assets/Banner/img7.jpg"
 
 export function Banner() {
   return (
-    <div className="sm:h-64 xl:h-80 2xl:h-96 ">
+    <div className="h-56 sm:h-64 xl:h-45 2xl:h-96 flex items-center justify-center">
       <Carousel>
-        <img className="w-full h-96" src={img1} alt="..." />
-        <img className="w-full h-96" src={img2} alt="..." />
-        <img className="w-full h-96" src={img3} alt="..." />
-        <img className="w-full h-96" src={img4} alt="..." />
-        <img className="w-full h-96" src={img5} alt="..." />
-        <img className="w-full h-96" src={img6} alt="..." />
+        <img className="object-contain mx-auto" src={img1} alt="..." />
+        <img className="object-contain mx-auto" src={img2} alt="..." />
+        <img className="object-contain mx-auto" src={img3} alt="..." />
+        <img className="object-contain mx-auto" src={img4} alt="..." />
+        <img className="object-contain mx-auto" src={img5} alt="..." />
+        <img className="object-contain mx-auto" src={img6} alt="..." />
+        <img className="object-contain mx-auto" src={img7} alt="..." />
       </Carousel>
     </div>
-
   );
 }
 

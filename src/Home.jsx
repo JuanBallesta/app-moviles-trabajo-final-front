@@ -3,6 +3,7 @@ import axios from 'axios';
 import Container from './Container.jsx';
 import { Banner } from './components/Banner.jsx';
 import { Pagination } from "flowbite-react";
+// import Pagination from './components/Pagintation.jsx';
 import './Home.css';
 
 function Home() {
@@ -16,7 +17,6 @@ function Home() {
 
   const chargeTastes = () => {
     setLoading(true);
-
     axios.get(`/tastes/list?pagina=${pagina}&cantidad=5&filtro=${filtro}&categories=${categorieSelected}&productTypes=${productTypesSelected}`)
       .then((respuesta) => {
         console.log(respuesta.data)
@@ -46,13 +46,9 @@ function Home() {
       <Banner />
       <div className='p-5 bg-cyan-200'>
         <div className="content-center">
-          {loading ? (
-            <div className="text-center text-xl">Cargando...</div>
-          ) : (
-            <Container tastes={data} categorieSelected={categorieSelected} setCategorieSelected={setCategorieSelected}
-              filtro={filtro} setFiltro={setFiltro}
-              productTypesSelected={productTypesSelected} setProductTypesSelected={setProductTypesSelected} />
-          )}
+          <Container tastes={data} categorieSelected={categorieSelected} setCategorieSelected={setCategorieSelected}
+            filtro={filtro} setFiltro={setFiltro}
+            productTypesSelected={productTypesSelected} setProductTypesSelected={setProductTypesSelected} />
           <div className="flex justify-center mt-5">
             <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} />
           </div>
@@ -60,7 +56,6 @@ function Home() {
       </div>
     </>
   );
-
 }
 
 export default Home;

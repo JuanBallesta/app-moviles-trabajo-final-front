@@ -102,7 +102,7 @@ function IceCreamTastes() {
         </div>
 
         {/* tabla nueva */}
-        {/* <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -198,7 +198,7 @@ function IceCreamTastes() {
               </tr>
             </tbody>
           </table>
-        </div> */}
+        </div>
 
 
         {/* <div class="relative flex flex-col w-full h-full overflow-scroll bg-white shadow-md rounded-lg bg-clip-border">
@@ -292,7 +292,7 @@ function IceCreamTastes() {
 
 
         {/* Mi tabla */}
-        <table className='ml-12 w-full'>
+        {/* <table className='ml-12 w-full'>
           <thead className="bg-gray-300">
             <tr>
               <th className="w-72 px-6 py-3 border border-black text-s font-medium text-black">Producto</th>
@@ -334,7 +334,7 @@ function IceCreamTastes() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
 
         {/* Paginacion  */}
       </div>
