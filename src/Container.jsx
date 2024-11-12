@@ -1,5 +1,6 @@
 // import { Button } from '@mui/material';
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom"
 import { Button } from "flowbite-react";
 import BtWhatsapp from './components/BtWhatsapp'
 import Filter from './components/Filters'
@@ -15,6 +16,7 @@ function Container(props) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className='flex justify-between gap-36 max-w-7xl'>
@@ -41,7 +43,9 @@ function Container(props) {
                   <img className="p-2 w-48 h-48" src={taste.photos} alt="Foto del helado" />
                 </div>
                 <div className="w-2/3 p-4">
-                  <h1 className="text-2xl font-bold text-gray-900">
+                  <h1
+                    className="text-2xl font-bold text-gray-900 hover:underline"
+                    onClick={() => navigate("/products/" + taste.id)}>
                     {taste.taste}
                   </h1>
                   <p className="mt-2 text-sm text-gray-600">

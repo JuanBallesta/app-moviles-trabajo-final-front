@@ -9,15 +9,20 @@ import {
 
 import Home from './Home.jsx';
 import Dashboard from './admin/Dashboard.jsx';
-import IceCreamTastesIndex from './admin/tastes/index.jsx';
-import CategoriesIndex from './admin/categories/index.jsx';
+import IceCreamTastesIndex from './admin/tastes/Index.jsx';
+import CategoriesIndex from './admin/categories/Index.jsx';
 import LayoutAdmin from './admin/LayoutAdmin.jsx'
 import FormTaste from './admin/tastes/Form.jsx';
 import FormCategorie from './admin/categories/Form.jsx';
-import ProductTypesIndex from './admin/productTypes/index.jsx';
+import ProductTypesIndex from './admin/productTypes/Index.jsx';
 import FormProductTypes from './admin/productTypes/Form.jsx';
 import Header from './components/Header.jsx'
 import Pie from './components/Pie.jsx';
+import ProductDetail from './components/ProductDetail.jsx';
+import App from './App.jsx'
+import Login from './admin/Login';
+import Register from './admin/Register';
+import ProtectedPage from './admin/ProtectedPage';
 
 import './index.css'
 
@@ -26,7 +31,23 @@ axios.defaults.baseURL = 'http://localhost:3000';
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <App />,
+  },
+  {
+    path: "home",
     element: <Home />,
+  },
+  {
+    path: "register",
+    element: <Register />,
+  },
+  {
+    path: "protected",
+    element: <ProtectedPage />,
+  },
+  {
+    path: "products/:id",
+    element: <ProductDetail />,
   },
   {
     path: "/admin",
@@ -60,14 +81,17 @@ const router = createBrowserRouter([
         path: "productTypes/:id",
         element: <FormProductTypes />,
       },
+
     ],
   },
 
 ]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Header />
-    <RouterProvider router={router} />
-    <Pie />
+    {/* <Header /> */}
+    <App />
+    {/* <RouterProvider router={router} />
+    <Pie /> */}
   </StrictMode>,
 )
