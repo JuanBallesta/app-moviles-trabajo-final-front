@@ -57,13 +57,13 @@ function IceCreamTastes() {
     }
   }
 
-  const cambiarPagina = (pagina) => {
-    setPaginaActual(pagina);
-  };
+  // const cambiarPagina = (pagina) => {
+  //   setPaginaActual(pagina);
+  // };
 
-  const calcularCantidadPaginas = () => {
-    return Math.ceil(data.length / elementosPorPagina);
-  };
+  // const calcularCantidadPaginas = () => {
+  //   return Math.ceil(data.length / elementosPorPagina);
+  // };
 
   const filtrarElementosSegunPagina = () => {
     const inicio = (paginaActual - 1) * elementosPorPagina;
@@ -140,7 +140,6 @@ function IceCreamTastes() {
                       <tr>
                         <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400" data-col="taste" data-type="string" >
                           <div className="flex items-center gap-x-3">
-                            <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" />
                             <span>Producto</span>
                             <svg className="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M2.13347 0.0999756H2.98516L5.01902 4.79058H3.86226L3.45549 3.79907H1.63772L1.24366 4.79058H0.0996094L2.13347 0.0999756ZM2.54025 1.46012L1.96822 2.92196H3.11227L2.54025 1.46012Z" fill="currentColor" stroke="currentColor" strokeWidth="0.1" />
@@ -198,7 +197,6 @@ function IceCreamTastes() {
                         <tr key={index} className={`hover:bg-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}`}>
                           <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                             <div className="inline-flex items-center gap-x-3">
-                              <input type="checkbox" className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700" />
                               <div className="flex items-center gap-x-2">
                                 <img className="object-cover w-10 h-10 rounded-full" src={taste.photos} alt="" />
                                 <div>
@@ -244,30 +242,13 @@ function IceCreamTastes() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between mt-6">
-            <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-              </svg>
+          <div className="flex justify-center mt-6">
 
-              <span>
-                Anterior
-              </span>
-            </a>
 
             <div className="flex justify-center mt-5">
-              <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} />
+              <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} previousLabel="← Anterior" nextLabel="Siguiente →"/>
             </div>
 
-            <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-              <span>
-                Siguiente
-              </span>
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
-            </a>
           </div>
         </section>
 

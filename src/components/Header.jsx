@@ -28,7 +28,7 @@ export const Header = () => {
       <div className="px-4 sm:px-6 md:flex lg:px-8 flex h-16 md:items-center">
         {/* Sección home */}
         <div className="flex-1 ">
-          <a className="block text-teal-600" href="/">
+          <a className="block text-teal-600" href="/home">
             <span className="sr-only">Home</span>
             <img className="w-10 h-10 md:w-12 md:h-12" src={Logo} alt='Logo de La Delicia' />
           </a>
@@ -37,13 +37,13 @@ export const Header = () => {
         {/* Sección botones */}
         <nav aria-label="Global" className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm">
-            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md text-white border-solid border-white'>
               <button >OFERTAS</button>
             </li>
-            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md text-white border-solid border-white'>
               <button>¿Cómo comprar?</button>
             </li>
-            <li className='p-2 mx-4 bg-cyan-400 rounded-md hover:bg-cyan-800 text-white border-solid border-white'>
+            <li className='p-2 mx-4 bg-cyan-400 rounded-md text-white border-solid border-white'>
               <button>Mi carrito 🛒</button>
             </li>
           </ul>

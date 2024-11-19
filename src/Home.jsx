@@ -50,7 +50,7 @@ function Home() {
             filtro={filtro} setFiltro={setFiltro}
             productTypesSelected={productTypesSelected} setProductTypesSelected={setProductTypesSelected} />
           <div className="flex justify-center mt-5">
-            <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} />
+          <Pagination currentPage={pagina} totalPages={totalPages} onPageChange={onPageChange} previousLabel="← Anterior" nextLabel="Siguiente →"/>          
           </div>
         </div>
       </div>
