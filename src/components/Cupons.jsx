@@ -6,20 +6,19 @@ export function Cupons({ setDiscount }) {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [discount, setLocalDiscount] = useState(null); // Estado para almacenar el porcentaje de descuento.
-
+  const [discount, setLocalDiscount] = useState(null);
   const chargeCupons = () => {
     setLoading(true);
     setError("");
-    setLocalDiscount(null); // Reinicia el estado de descuento antes de realizar la solicitud.
+    setLocalDiscount(null);
 
     axios
       .get(`/cupons/getDiscount?code=${code}`)
       .then((respuesta) => {
         if (respuesta.status === 200) {
           const cuponData = respuesta.data.data;
-          setDiscount(cuponData.discount); // Actualiza el descuento en el estado principal.
-          setLocalDiscount(cuponData.discount); // Guarda el descuento localmente para mostrar el mensaje.
+          setDiscount(cuponData.discount);
+          setLocalDiscount(cuponData.discount);
         }
       })
       .catch(() => {
@@ -49,7 +48,7 @@ export function Cupons({ setDiscount }) {
         <Button
           className="w-48 text-center rounded bg-cyan-400 text-sm font-bold text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-cyan-500"
           onClick={chargeCupons}
-          disabled={loading} // Evita múltiples solicitudes.
+          disabled={loading}
         >
           {loading ? "APLICANDO..." : "APLICAR"}
         </Button>
