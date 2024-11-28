@@ -113,16 +113,12 @@ function Container(props) {
                       >
                         ${taste.productType?.price}
                       </p>
-                      <p
-                        className={
-                          discount
-                            ? "ml-4 font-bold text-l text-green-500"
-                            : "hidden"
-                        }
-                      >
-                        ${applyDiscount(taste.productType?.price)} - {discount}%
-                        OFF
-                      </p>
+                      {discount && (
+                        <p className="ml-4 font-bold text-l text-green-500">
+                          ${applyDiscount(taste.productType?.price)} -{" "}
+                          {discount}% OFF
+                        </p>
+                      )}
                     </div>
                     <Button className="w-48 inline-block rounded bg-cyan-400 text-sm font-bold text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-cyan-500">
                       AGREGAR AL CARRITO
@@ -133,7 +129,7 @@ function Container(props) {
             ))
           )}
         </div>
-        <Cupons setDiscount={setDiscount} />
+        <Cupons descuento={setDiscount} />
       </div>
 
       <BtWhatsapp />
