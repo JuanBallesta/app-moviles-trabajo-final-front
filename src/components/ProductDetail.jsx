@@ -6,7 +6,7 @@ import ProductComments from "./ProductComments";
 
 import axios from "axios";
 
-const ProductDetail = ({ iceCreamTasteId }) => {
+const ProductDetail = ({}) => {
   const { id } = useParams();
   const [taste, setTaste] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,26 +28,11 @@ const ProductDetail = ({ iceCreamTasteId }) => {
     }
   };
 
-  const chargeComentarios = async () => {
-    try {
-      const response = await axios.get(
-        `/comentarios?iceCreamTasteId=${iceCreamTasteId}`
-      );
-      if (response.data.ok) {
-        setComentario(response.data.data);
-      }
-    } catch (error) {
-      setError("Hubo un error al cargar los comentarios");
-    } finally {
-      setLoading(false);
-    }
-  };
   const saveComentario = async (objComentario) => {
     try {
       const respuesta = await axios.post(`/comentarios/`, objComentario);
       if (respuesta.status === 201) {
         console.log("Comentario enviado correctamente", respuesta.data.data);
-        cha();
       } else {
         console.log("Error al guardar el comentario");
       }
@@ -58,7 +43,7 @@ const ProductDetail = ({ iceCreamTasteId }) => {
 
   useEffect(() => {
     chargeTaste(id);
-  }, [id, iceCreamTasteId]);
+  }, [id]);
 
   const save = () => {
     const objData = {
@@ -395,7 +380,7 @@ const ProductDetail = ({ iceCreamTasteId }) => {
           </form>
         </div>
       </div>
-      <ProductComments iceCreamTasteId={iceCreamTasteId} />
+      <ProductComments idProduct={taste.id} />
     </>
   );
 };

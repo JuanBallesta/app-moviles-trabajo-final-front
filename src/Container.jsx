@@ -113,7 +113,7 @@ function Container(props) {
                       >
                         ${taste.productType?.price}
                       </p>
-                      {discount && (
+                      {discount != 0 && (
                         <p className="ml-4 font-bold text-l text-green-500">
                           ${applyDiscount(taste.productType?.price)} -{" "}
                           {discount}% OFF

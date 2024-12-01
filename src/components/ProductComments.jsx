@@ -2,29 +2,35 @@ import React, { useEffect, useState } from "react";
 import { Card } from "flowbite-react";
 import axios from "axios";
 
-const ProductComments = ({ iceCreamTasteId }) => {
+const ProductComments = ({ idProduct }) => {
   const [comentario, setComentario] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const chargeComentarios = async () => {
-      try {
-        const response = await axios.get(
-          `/comentarios?iceCreamTasteId=${iceCreamTasteId}`
-        );
-        if (response.data.ok) {
-          setComentario(response.data.data);
-        }
-      } catch (error) {
-        setError("Hubo un error al cargar los comentarios");
-      } finally {
-        setLoading(false);
-      }
-    };
+  const chargeComentarios = async () => {
+    console.log("id", idProduct);
 
-    chargeComentarios();
-  }, [iceCreamTasteId]);
+    try {
+      const response = await axios.get(
+        `/comentarios/getComment/iceCreamTasteId/${idProduct}`
+      );
+      if (response.data.ok) {
+        const comentariosOrdenados = response.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setComentario(comentariosOrdenados);
+      }
+    } catch (error) {
+      console.error("Error al cargar los comentarios:", error);
+      setError("Hubo un error al cargar los comentarios");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    chargeComentarios(idProduct);
+  }, [idProduct]);
 
   return (
     <div className="mb-4 mt-8 ">
